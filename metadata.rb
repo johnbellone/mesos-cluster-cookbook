@@ -1,0 +1,15 @@
+name 'mesos-cluster'
+maintainer 'John Bellone'
+maintainer_email 'jbellone@bloomberg.net'
+license 'Apache 2.0'
+description 'Application cookbook for installing and configuring a Mesos cluster.'
+logn_description 'Application cookbook for installing and configuring an Mesos cluster.'
+version '1.0.0'
+
+supports 'ubuntu', '>= 12.04'
+supports 'centos', '>= 6.4'
+supports 'redhat', '>= 6.4'
+
+depends 'ark'
+depends 'poise', '~> 2.0'
+depends 'poise-service'
