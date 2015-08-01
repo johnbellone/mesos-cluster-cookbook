@@ -6,19 +6,23 @@
 #
 require 'poise'
 
-class Chef::Resource::MesosConfig < Chef::Resource
-  include Poise(fused: true)
-  provides(:mesos_config)
+module MesosClusterCookbook
+  module Resource
+    class MesosConfig < Chef::Resource
+      include Poise(fused: true)
+      provides(:mesos_service)
 
-  attribute(:path, kind_of: String, name_attribute: true)
-  attribute(:user, kind_of: String, default: 'mesos')
-  attribute(:group, kind_of: String, default: 'mesos')
+      attribute(:path, kind_of: String, name_attribute: true)
+      attribute(:user, kind_of: String, default: 'mesos')
+      attribute(:group, kind_of: String, default: 'mesos')
 
-  action(:create) do
+      action(:create) do
 
-  end
+      end
 
-  action (:delete) do
+      action (:delete) do
 
+      end
+    end
   end
 end
