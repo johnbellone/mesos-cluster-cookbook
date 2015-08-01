@@ -1,12 +1,17 @@
-require 'spec_helper'
+require 'poise_boiler/spec_helper'
+require_relative '../../../libraries/mesos_config'
 
-describe_recipe 'mesos-cluster::default' do
-  cached(:chef_run) { ChefSpec::SoloRunner.new(step_into: %w{mesos_config}).converge(described_recipe) }
+describe MesosClusterCookbook::Resource::MesosConfig do
+  step_into(:mesos_config)
+  context '#action_create' do
+    recipe do
+      mesos_config '/etc/mesos'
+    end
+  end
 
-  context 'with default attributes' do
-
-    it 'converges successfully' do
-      chef_run
+  context '#action_delete' do
+    mesos_config '/etc/mesos' do
+      action :delete
     end
   end
 end
